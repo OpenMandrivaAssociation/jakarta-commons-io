@@ -33,8 +33,8 @@
 %define gcj_support     1
 
 Name:           jakarta-%{base_name}
-Version:        1.3.1
-Release:        %mkrel 1.1
+Version:        1.3.2
+Release:        %mkrel 1.0.1
 Epoch:          0
 Summary:        Commons IO Package
 
@@ -46,7 +46,7 @@ URL:            http://jakarta.apache.org/commons/io/
 Source0:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{version}-src.tar.gz
 Source1:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{version}-src.tar.gz.asc
 Source2:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{version}-src.tar.gz.md5
-Patch0:         jakarta-commons-io-1.3.1-link-offline.patch
+Patch0:         jakarta-commons-io-1.3.2-link-offline.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 #Distribution:   JPackage
 #Vendor:         JPackage Project
@@ -80,7 +80,10 @@ Javadoc for %{name}
 %prep
 %setup -q -n %{base_name}-%{version}-src
 %patch0 -p1
+%if 0
 %{_bindir}/find . -name '*.jar' | %{_bindir}/xargs -t %{__rm}
+%endif
+%{__perl} -pi -e 's/\r$//g' LICENSE.txt
 
 %build
 export OPT_JAR_LIST="ant/ant-junit junit"
