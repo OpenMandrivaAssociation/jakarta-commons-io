@@ -34,7 +34,7 @@
 
 Name:           jakarta-%{base_name}
 Version:        1.3.2
-Release:        %mkrel 1.0.1
+Release:        %mkrel 1.0.2
 Epoch:          0
 Summary:        Commons IO Package
 
@@ -52,8 +52,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 #Vendor:         JPackage Project
 %if %{gcj_support}
 BuildRequires:    java-gcj-compat-devel
-Requires(post):   java-gcj-compat
-Requires(postun): java-gcj-compat
 %else
 BuildArch:      noarch
 BuildRequires:  java-devel
