@@ -34,7 +34,7 @@
 
 Name:           jakarta-%{base_name}
 Version:        1.3.2
-Release:        %mkrel 1.0.2
+Release:        %mkrel 1.0.3
 Epoch:          0
 Summary:        Commons IO Package
 
@@ -58,7 +58,7 @@ BuildRequires:  java-devel
 %endif
 Provides:       %{base_name} = %{epoch}:%{version}-%{release}
 BuildRequires:  java-javadoc
-BuildRequires:  jpackage-utils >= 0:1.6
+BuildRequires:  java-rpmbuild >= 0:1.6
 BuildRequires:  ant >= 0:1.6
 BuildRequires:  ant-junit >= 0:1.6
 BuildRequires:  junit >= 0:3.8.1
