@@ -47,7 +47,6 @@ Source0:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{ve
 Source1:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{version}-src.tar.gz.asc
 Source2:        http://apache.org/dist/jakarta/commons/io/source/commons-io-%{version}-src.tar.gz.md5
 Patch0:         jakarta-commons-io-1.3.2-link-offline.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 #Distribution:   JPackage
 #Vendor:         JPackage Project
 %if %{gcj_support}
