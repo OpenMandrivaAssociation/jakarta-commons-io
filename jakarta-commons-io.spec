@@ -39,6 +39,7 @@ Epoch:          0
 Summary:        Commons IO Package
 
 Group:          Development/Java
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:        Apache License
 URL:            http://jakarta.apache.org/commons/io/
 #cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic login
