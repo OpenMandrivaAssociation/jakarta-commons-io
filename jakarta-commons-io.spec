@@ -119,6 +119,7 @@ ln -s %{_javadir} external_repo/JPP
 mvn-jpp \
         -e \
         -s $(pwd)/settings.xml \
+        -Dmaven.test.failure.ignore=true \
         -Dmaven2.jpp.mode=true \
         -Dmaven2.jpp.depmap.file=%{SOURCE2} \
         -Dmaven.repo.local=$MAVEN_REPO_LOCAL \
