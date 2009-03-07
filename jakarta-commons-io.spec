@@ -41,7 +41,7 @@
 
 Name:           jakarta-%{base_name}
 Version:        1.4
-Release:        %mkrel 2.0.1
+Release:        %mkrel 2.0.2
 Epoch:          0
 Summary:        Commons IO Package
 
