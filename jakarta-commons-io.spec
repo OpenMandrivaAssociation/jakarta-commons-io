@@ -28,20 +28,14 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-%define gcj_support 1
+%define gcj_support	0
+%define with_maven	0
 
-# If you don't want to build with maven, and use straight ant instead,
-# give rpmbuild option '--without maven'
-
-%define with_maven %{!?_without_maven:1}%{?_without_maven:0}
-%define without_maven %{?_without_maven:1}%{!?_without_maven:0}
-
-%define section   free
-%define base_name       commons-io
+%define base_name	commons-io
 
 Name:           jakarta-%{base_name}
 Version:        1.4
-Release:        %mkrel 2.0.3
+Release:        %mkrel 2.0.4
 Epoch:          0
 Summary:        Commons IO Package
 
@@ -137,11 +131,11 @@ CLASSPATH=target/classes:target/test-classes:$CLASSPATH
 %install
 # jars
 install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
-%if %{with_maven}
-install -pm 644 target/%{base_name}-%{version}.jar \
+%if %{gcj_support}
+install -pm 644 build/%{base_name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
 %else
-install -pm 644 build/%{base_name}-%{version}.jar \
+install -pm 644 target/%{base_name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
 %endif
 ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
@@ -150,19 +144,21 @@ ln -s %{name}-%{version}.jar \
 ln -s %{base_name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{base_name}.jar
 
+%if %{with_maven}
 %add_to_maven_depmap %{base_name} %{base_name} %{version} JPP %{base_name}
 
 # poms
 install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/maven2/poms
 install -pm 644 pom.xml \
     $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{name}.pom
+%endif
 
 install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 %if %{with_maven}
-cp -pr target/site/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+cp -pr target/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 %else
-unzip -q build/dist/%{base_name}-%{version}.zip %{base_name}-%{version}/docs/* -d $RPM_BUILD_ROOT%{_javadocdir}
-mv $RPM_BUILD_ROOT%{_javadocdir}/%{base_name}-%{version}/docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+unzip -q target/dist/%{base_name}-%{version}.zip %{base_name}-%{version}/apidocs/* -d $RPM_BUILD_ROOT%{_javadocdir}
+mv $RPM_BUILD_ROOT%{_javadocdir}/%{base_name}-%{version}/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 rm -r $RPM_BUILD_ROOT%{_javadocdir}/%{base_name}-%{version}
 %endif
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} 
@@ -184,8 +180,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc LICENSE.txt NOTICE.txt RELEASE-NOTES.txt
 %{_javadir}/*.jar
+%if %{with_maven}
 %{_datadir}/maven2/poms/*
 %{_mavendepmapfragdir}
+%endif
 %{gcj_files}
 
 %files javadoc
