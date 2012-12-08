@@ -192,3 +192,75 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_javadocdir}/%{name}
 
 
+
+
+%changelog
+* Sat Jul 16 2011 Paulo Andrade <pcpa@mandriva.com.br> 0:1.4-2.0.4mdv2011.0
++ Revision: 690140
+- Rebuild and add back to 2011 and cooker to allow installing scilab and fop.
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - rebuilt (needed by fop -> x11-server)
+
+  + Antoine Ginies <aginies@mandriva.com>
+    - rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild early 2009.0 package (before pixel changes)
+
+* Mon May 12 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:1.4-1.0.1mdv2009.0
++ Revision: 206374
+- ignore test failure
+- new version
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - fix no-buildroot-tag
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 0:1.3.2-1.0.3mdv2008.1
++ Revision: 127282
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Anssi Hannula <anssi@mandriva.org>
+    - buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Sat Sep 15 2007 Anssi Hannula <anssi@mandriva.org> 0:1.3.2-1.0.2mdv2008.0
++ Revision: 87410
+- rebuild to filter out autorequires of GCJ AOT objects
+- remove unnecessary Requires(post) on java-gcj-compat
+
+* Sat Jul 21 2007 David Walluck <walluck@mandriva.org> 0:1.3.2-1.0.1mdv2008.0
++ Revision: 54090
+- 1.3.2
+
+
+* Wed Apr 04 2007 David Walluck <walluck@mandriva.org> 1.3.1-1.1mdv2007.1
++ Revision: 150659
+- 1.3.1
+
+* Thu Mar 15 2007 David Walluck <walluck@mandriva.org> 0:1.2-3.1mdv2007.1
++ Revision: 143950
+- fix build
+- Import jakarta-commons-io
+
+* Fri Jun 02 2006 David Walluck <walluck@mandriva.org> 0:1.2-1mdv2007.0
+- 1.2
+- release
+
+* Fri Feb 24 2006 Fernando Nasser <fnasser@redhat.com> - 0:1.1-0.20051005.2jpp
+- First JPP 1.7 build
+
+* Thu Oct 06 2005 Ralph Apel <r.apel at r-apel.de> - 0:1.1-0.20051005.1jpp
+- Upgrade to 1.1 dev
+
+* Thu Oct 06 2005 Ralph Apel <r.apel at r-apel.de> - 0:1.0-1jpp
+- Upgrade to 1.0 final
+
+* Tue Aug 24 2004 Randy Watler <rwatler at finali.com> - 0:1.0.cvs20040118-4jpp
+- Rebuild with ant-1.6.2
+
+* Sat Aug 07 2004 Ralph Apel <r.apel at r-apel.de> - 0:1.0.cvs20040118-3jpp
+- Void change
+
+* Wed Jun 02 2004 Randy Watler <rwatler at finali.com> - 0:1.0.cvs20040118-2jpp
+- Upgrade to Ant 1.6.X
+

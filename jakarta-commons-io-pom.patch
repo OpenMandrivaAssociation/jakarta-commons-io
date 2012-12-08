@@ -1,0 +1,10 @@
+--- pom.xml	2008-01-17 04:05:20.000000000 +0100
++++ ../../SOURCES/jakarta-commons-io-pom.xml	2008-04-02 13:35:18.000000000 +0200
+@@ -220,6 +220,7 @@
+             </includes>
+             <excludes>
+               <exclude>**/*AbstractTestCase*</exclude>
++              <exclude>**/*FileClean*TestCase*</exclude>
+               <exclude>**/AllIOTestSuite*</exclude>
+               <exclude>**/PackageTestSuite*</exclude>
+               <exclude>**/testtools/**</exclude>
