@@ -30,6 +30,7 @@
 
 %define gcj_support	0
 %define with_maven	0
+%bcond_without	bootstrap
 
 %define base_name	commons-io
 
@@ -60,8 +61,10 @@ Provides:       %{base_name} = %{epoch}:%{version}-%{release}
 BuildRequires:  java-javadoc
 BuildRequires:  java-rpmbuild >= 0:1.6
 BuildRequires:  ant >= 0:1.6
+%if !%{with bootstrap}
 BuildRequires:  ant-junit >= 0:1.6
 BuildRequires:  junit >= 0:3.8.1
+%endif
 %if %{with_maven}
 BuildRequires:  maven2
 BuildRequires:  maven-surefire-plugin
