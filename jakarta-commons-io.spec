@@ -37,7 +37,7 @@
 Summary:	Commons IO Package
 Name:		jakarta-%{base_name}
 Version:	1.4
-Release:	2.0.4
+Release:	2.0.5
 Group:		Development/Java
 License:	Apache License
 Url:		http://jakarta.apache.org/commons/io/
