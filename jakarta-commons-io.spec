@@ -40,7 +40,7 @@ Version:	1.4
 Release:	2.0.4
 Group:		Development/Java
 License:	Apache License
-Url:		http://jakarta.apache.org/commons/io/
+Url:		https://jakarta.apache.org/commons/io/
 #cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic login
 #cvs -z3 -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic export -r HEAD jakarta-commons/io
 Source0:	commons-io-1.4-src.tar.gz
